@@ -13,7 +13,6 @@ VOLUME [${appdir}, ${ytmp3out}]
 ADD youtube-mp3 ${appdir}
 WORKDIR ${appdir}
 RUN pip install --no-cache-dir -r requirements.txt
-RUN python setup.py install
 
 # Default command
 ENV url ""

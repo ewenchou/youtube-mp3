@@ -35,7 +35,8 @@ Configure variables in `youtube_mp3/settings.py`:
 
 Install the Python module:
 
-        python setup.py install
+        cd youtube-mp3
+        pip install -r requirements.txt
 
 Run the code:
 
