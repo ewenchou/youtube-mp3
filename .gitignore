@@ -4,3 +4,4 @@ dist
 *.pyc
 output
 .vscode
+*.code-workspace
