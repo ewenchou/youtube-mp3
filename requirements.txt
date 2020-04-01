@@ -1,5 +1,4 @@
 youtube_dl
 mutagen
 pathlib
-pymongo
 pytest

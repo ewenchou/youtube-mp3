@@ -10,7 +10,7 @@ ENV ytmp3out "/tmp/youtube-mp3"
 VOLUME [${appdir}, ${ytmp3out}]
 
 # Add and install app
-ADD youtube-mp3 ${appdir}
+ADD ./* ${appdir}/
 WORKDIR ${appdir}
 RUN pip install --no-cache-dir -r requirements.txt
 
