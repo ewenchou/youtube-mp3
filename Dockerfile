@@ -1,6 +1,5 @@
 FROM ubuntu
-RUN apt-get update
-RUN apt-get -y install python python-pip ffmpeg
+RUN apt-get update && apt-get -y install python python-pip ffmpeg
 
 # Directory to build and install Python module
 ENV appdir "/opt/youtube-mp3"
