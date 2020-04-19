@@ -91,6 +91,7 @@ class YouTubeMP3:
         for data in data_list:
             try:
                 mp3_file_path = "%s/%s.mp3" % (self.output_dir, data['id'])
+                data['file_path'] = mp3_file_path
                 utils.add_metadata_to_mp3(mp3_file_path, data)
                 if rename_files:
                     # Rename the file

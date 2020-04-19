@@ -1,5 +1,6 @@
 # Main executable for download
 import sys, traceback
+import pprint
 from youtube_mp3 import YouTubeMP3
 
 
@@ -10,6 +11,7 @@ if __name__ == '__main__':
     url = sys.argv[1]
     try:
         data_list = yt.download(url)
+        pprint.pprint(data_list)
     except:
         print "Failed to download %s" % url
         traceback.print_exc(file=sys.stdout)
