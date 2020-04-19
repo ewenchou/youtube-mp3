@@ -19,11 +19,11 @@ class YouTubeMP3:
         self.output_dir = output_dir
         self.archive_file = archive_file
 
-    def download(self, url):
+    def download(self, url, rename_files=False):
         """Download and extract the audio from the YouTube video URL"""
         self._download(url)
         data_list = self.parse_info()
-        new_data_list = self.update_mp3_files(data_list)
+        new_data_list = self.update_mp3_files(data_list, rename_files)
         return new_data_list
 
     def _download(self, url):
@@ -78,7 +78,7 @@ class YouTubeMP3:
         # Return the results
         return data_list
 
-    def update_mp3_files(self, data_list):
+    def update_mp3_files(self, data_list, rename_files=False):
         """Loops through the data list returned by parse_info() and updates the MP3 files' 
         metadata and renames them from YouTube ID to song title.
         
@@ -92,9 +92,10 @@ class YouTubeMP3:
             try:
                 mp3_file_path = "%s/%s.mp3" % (self.output_dir, data['id'])
                 utils.add_metadata_to_mp3(mp3_file_path, data)
-                # Rename the file
-                new_file_path = utils.rename_mp3(file_path=self.output_dir, old_name=data['id'], new_name=data['title'])
-                data['file_path'] = new_file_path
+                if rename_files:
+                    # Rename the file
+                    new_file_path = utils.rename_mp3(file_path=self.output_dir, old_name=data['id'], new_name=data['title'])
+                    data['file_path'] = new_file_path
                 data['downloaded'] = True
             except Exception as exc:
                 print "Failed to update MP3 file for %s. Error: %s" % (str(data), str(exc))
