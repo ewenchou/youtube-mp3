@@ -55,6 +55,7 @@ class YouTubeMP3:
                 yt_id = json_data.get('id', '')
                 yt_thumb = json_data.get('thumbnail', '')
                 yt_url = json_data.get('webpage_url', '')
+                yt_album = json_data.get('album', '')
                 if yt_id and yt_title:
                     # Try to parse artist and song title from video title
                     parts = yt_title.split('-')
@@ -71,7 +72,9 @@ class YouTubeMP3:
                     'title': title,
                     'artist': artist,
                     'thumb_url': yt_thumb,
-                    'url': yt_url})
+                    'url': yt_url,
+                    'album': yt_album,
+                })
                 # Remove the info.json file
                 if cleanup:
                     os.remove(filename)
