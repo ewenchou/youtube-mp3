@@ -34,6 +34,7 @@ def get_youtube_dl_opts(output_dir=OUTPUT_DIR, archive_file=ARCHIVE_FILE):
         }],
         'ignoreerrors': True,
         'writeinfojson': True,
+        # 'format': 'mp4',
         'outtmpl': '{}/%(id)s.%(ext)s'.format(output_dir)
     }
     if archive_file:

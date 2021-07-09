@@ -1,3 +1,5 @@
+# coding=utf8
+
 # Main executable for download
 import sys, traceback
 import pprint
@@ -9,9 +11,11 @@ if __name__ == '__main__':
         raise ValueError("Missing URL argument")
     yt = YouTubeMP3()
     url = sys.argv[1]
-    try:
-        data_list = yt.download(url)
-        pprint.pprint(data_list)
-    except:
-        print "Failed to download %s" % url
-        traceback.print_exc(file=sys.stdout)
+    data_list = yt.download(url)
+    print(data_list)
+    # try:
+    #     data_list = yt.download(url)
+    #     pprint.pprint(data_list)
+    # except:
+    #     print("Failed to download %s" % url)
+    #     traceback.print_exc(file=sys.stdout)

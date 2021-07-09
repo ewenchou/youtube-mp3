@@ -19,7 +19,7 @@ class YouTubeMP3:
         self.output_dir = output_dir
         self.archive_file = archive_file
 
-    def download(self, url, rename_files=False):
+    def download(self, url, rename_files=True):
         """Download and extract the audio from the YouTube video URL"""
         self._download(url)
         data_list = self.parse_info()
@@ -81,7 +81,7 @@ class YouTubeMP3:
         # Return the results
         return data_list
 
-    def update_mp3_files(self, data_list, rename_files=False):
+    def update_mp3_files(self, data_list, rename_files=True):
         """Loops through the data list returned by parse_info() and updates the MP3 files' 
         metadata and renames them from YouTube ID to song title.
         
@@ -102,5 +102,5 @@ class YouTubeMP3:
                     data['file_path'] = new_file_path
                 data['downloaded'] = True
             except Exception as exc:
-                print "Failed to update MP3 file for %s. Error: %s" % (str(data), str(exc))
+                print("Failed to update MP3 file for %s. Error: %s" % (str(data), str(exc)))
         return data_list
