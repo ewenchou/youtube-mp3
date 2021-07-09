@@ -3,7 +3,7 @@
 ## youtube-mp3
 
 * Python wrapper around YouTube-DL that extracts audio from YouTube videos as MP3 files
-* Version 0.1
+* Version 0.2
 
 ## Getting Started
 
@@ -24,10 +24,10 @@ Configure variables in `youtube_mp3/settings.py`:
 
 * Take a look at the Python dependencies in the `requirements.txt` file.
 * The default configuration of YouTube-DL uses __FFMPEG__ to do the audio extraction and conversion to MP3 files.
-* See the Docker section below on how to get it up and running with all dependencies in a container. 
+* See the Docker section below on how to get it up and running with all dependencies in a container.
 * Alternately, you can refer to the commands in the Dockerfile for an example of how to setup the dependencies in a Ubuntu environment.
 
-## Installation 
+## Installation
 
 ### Python
 
@@ -36,18 +36,19 @@ Configure variables in `youtube_mp3/settings.py`:
 Install the Python module:
 
         cd youtube-mp3
-        pip install -r requirements.txt
+        pip3 install -r requirements.txt
 
 Run the code:
 
         mkdir <output-path>
-        python <path-to-code>/youtube_mp3/main.py "<YouTube URL to download>"
+        python3 <path-to-code>/youtube_mp3/main.py "<YouTube URL to download>"
 
 Example:
 
         mkdir /tmp/youtube-mp3
-        python /Users/ewenchou/projects/youtube-mp3/youtube_mp3/main.py "https://youtu.be/dQw4w9WgXcQ"
+        python3 /Users/ewenchou/projects/youtube-mp3/youtube_mp3/main.py "https://youtu.be/dQw4w9WgXcQ"
 
+*Note: If the titles contain non-ascii text, prefix the python3 command with* `PYTHONIOENCODING=utf-8`
 
 The output MP3 file(s) will be located in the output directory (default: `/tmp/youtube-mp3`)
 
