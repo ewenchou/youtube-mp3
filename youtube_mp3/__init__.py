@@ -66,6 +66,9 @@ class YouTubeMP3:
                         # Fallback to using the full title for both title and artist fields
                         artist = yt_title
                         title = yt_title
+                else:
+                    # Something went wrong, skip and continue with loop
+                    continue
                 # Add the data to the list
                 data_list.append({
                     'id': yt_id,
