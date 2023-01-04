@@ -1,4 +1,4 @@
-youtube_dl
+yt-dlp
 mutagen
 pathlib
 pytest

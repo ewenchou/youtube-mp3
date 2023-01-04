@@ -9,7 +9,7 @@ def add_metadata_to_mp3(mp3_file_path, metadata):
     # List of valid EasyID3 keys
     key_list = ['title', 'artist', 'album', 'composer']
     for key in key_list:
-        if key in metadata:
+        if key in metadata and metadata[key]:
             mp3_file[key] = metadata[key]
         # Fallback to using artist as album if available (makes it play nicer with iTunes)
         elif key == 'album' and 'artist' in metadata:
