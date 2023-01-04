@@ -1,7 +1,7 @@
 # Main file containing the code for youtube_mp3
 import youtube_mp3.settings as settings
 import youtube_mp3.utils as utils
-import youtube_dl
+from yt_dlp import YoutubeDL
 import os
 import glob
 import json
@@ -27,8 +27,8 @@ class YouTubeMP3:
         return new_data_list
 
     def _download(self, url):
-        """Uses YouTube-DL to do the heavy lifting of downloading and extracting audio using FFMPEG"""
-        with youtube_dl.YoutubeDL(self.options) as ytdl:
+        """Uses yt-dlp to do the heavy lifting of downloading and extracting audio using FFMPEG"""
+        with YoutubeDL(self.options) as ytdl:
             ytdl.download([url])
 
     def parse_info(self, directory="", cleanup=True):
